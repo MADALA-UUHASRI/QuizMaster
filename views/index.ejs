@@ -1,0 +1,292 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <header>
+        <div class="logo">
+            <h1>QuizMaster</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/profile">Profile</a></li>
+            </ul>
+        </nav>
+   
+    </header>
+
+
+    <main>
+        <section class="hero">
+         
+            <div class="scrolling-text">
+                <p>Welcome to the Ultimate Online Quiz Platform!</p>
+            </div>
+        
+            <p>Test your knowledge, challenge friends, and track your scores!</p>
+            
+    
+            <div class="guide">
+                <h3>How to Take the Quiz</h3>
+                <ol>
+                    <li><span class="step-icon">🔐</span> Login or Register if you haven't done so.</li>
+                    <li><span class="step-icon">📚</span> Select the quiz category you want to participate in.</li>
+                    <li><span class="step-icon">📝</span> Read the questions carefully and choose the correct answer.</li>
+                    <li><span class="step-icon">✔️</span> Submit your answers to see your score!</li>
+                    <li><span class="step-icon">🏅</span> Check your scores and challenge yourself to improve!</li>
+                </ol>
+            </div>
+
+        
+
+            <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+        </section>
+    </main>
+
+  
+    <footer>
+        <p>&copy; 2024 QuizMaster. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz Application</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9; /* Light background */
+            color: #333; /* Text color */
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003366; /* Dark blue */
+            color: white;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background-color: #fff;
+            padding: 80px 20px;
+            border-radius: 8px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 15px 0;
+            color: #666;
+        }
+
+        /* Guide Section */
+        .guide {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .guide h3 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .guide ol {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .guide ol li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        /* Start Quiz Button */
+        .start-btn {
+            padding: 12px 35px;
+            font-size: 20px;
+            background-color: #003366; /* Dark blue */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .start-btn:hover {
+            background-color: #002244; /* Darker blue on hover */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Scrolling Text */
+        .scrolling-text {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+
+        .scrolling-text p {
+            display: inline-block;
+            font-size: 38px;
+            font-weight: 600;
+            animation: scrollText 10s linear infinite; /* Adjust speed */
+            color: #003366; /* Dark blue */
+        }
+
+        @keyframes scrollText {
+            from {
+                transform: translateX(100%); /* Start off the right edge */
+            }
+            to {
+                transform: translateX(-100%); /* Move to the left edge */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>QuizMaster</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content (Homepage) -->
+    <main>
+        <section class="hero">
+            <!-- Scrolling Text -->
+            <div class="scrolling-text">
+                <p>Welcome to the Ultimate Online Quiz Platform!</p>
+            </div>
+        
+            <p>Test your knowledge, challenge friends, and track your scores!</p>
+            
+            <!-- Guide Section -->
+            <div class="guide">
+                <h3>How to Take the Quiz</h3>
+                <ol>
+                    <li><span class="step-icon">🔐</span> Login or Register if you haven't done so.</li>
+                    <li><span class="step-icon">📚</span> Select the quiz category you want to participate in.</li>
+                    <li><span class="step-icon">📝</span> Read the questions carefully and choose the correct answer.</li>
+                    <li><span class="step-icon">✔️</span> Submit your answers to see your score!</li>
+                    <li><span class="step-icon">🏅</span> Check your scores and challenge yourself to improve!</li>
+                </ol>
+            </div>
+
+            <!-- Start Quiz Button -->
+            <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 QuizMaster. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function startQuiz() {
+            const loggedIn = localStorage.getItem('loggedIn'); // Check login status
+            if (loggedIn) {
+                window.location.href = '/quiz'; // Redirect to quiz page
+            } else {
+                window.location.href = '/login'; // Redirect to login page
+            }
+        }
+
+        function Profileopen() {
+            const loggedIn = localStorage.getItem('loggedIn'); // Check login status
+            if (loggedIn) {
+                window.location.href = '/profile'; // Redirect to profile page
+            } else {
+                window.location.href = '/login'; // Redirect to login page
+            }
+        }
+    </script>
+</body>
+</html>

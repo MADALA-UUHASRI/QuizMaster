@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+   
+    <style>
+        
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9; /* Light background */
+            color: #333; /* Text color */
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003366; /* Dark blue */
+            color: white;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background-color: #fff;
+            padding: 80px 20px;
+            border-radius: 8px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 15px 0;
+            color: #666;
+        }
+
+        /* Guide Section */
+        .guide {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .guide h3 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .guide ol {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .guide ol li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        /* Start Quiz Button */
+        .start-btn {
+            padding: 12px 35px;
+            font-size: 20px;
+            background-color: #003366; /* Dark blue */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .start-btn:hover {
+            background-color: #002244; /* Darker blue on hover */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Scrolling Text */
+        .scrolling-text {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+
+        .scrolling-text p {
+            display: inline-block;
+            font-size: 38px;
+            font-weight: 600;
+            animation: scrollText 10s linear infinite; /* Adjust speed */
+            color: #003366; /* Dark blue */
+        }
+
+        @keyframes scrollText {
+            from {
+                transform: translateX(100%); /* Start off the right edge */
+            }
+            to {
+                transform: translateX(-100%); /* Move to the left edge */
+            }
+        }
+        /* Profile Page Styles */
+        .profile-container {
+            width: 100%;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #003366;
+        }
+
+        .profile-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .profile-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .profile-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .profile-form button:hover {
+            background-color: #005499;
+        }
+
+        .profile-form .profile-pic {
+            display: block;
+            margin: 0 auto 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #003366;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #003366;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>QuizMaster</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-container">
+        <h2>User Profile</h2>
+        <form class="profile-form" id="profileForm">
+            <!-- Profile Picture -->
+            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-pic">
+
+            <!-- Name -->
+            <label for="name">Username</label>
+            <input type="text" id="name" name="name" value="" required>
+
+            <!-- Password -->
+            <label for="password">Change Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter new password">
+
+            <!-- Update Button -->
+            <button type="submit">Update Profile</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Form submission (for demo purposes, no actual backend logic)
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Profile updated successfully!');
+        });
+    </script>
+</body>
+</html>
